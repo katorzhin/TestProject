@@ -10,20 +10,7 @@
        http://www.springframework.org/schema/util
        https://www.springframework.org/schema/util/spring-util.xsd">
 
-    <context:property-placeholder location="classpath:musicPlayer.properties"/>
-
-    <bean id="musicBean"
-          class="com.springTest.RockMusic">
-    </bean>
-
-    <bean id="musicPlayer"
-          class="com.springTest.MusicPlayer"
-          scope="prototype">
-        <property name="music" ref="musicBean"/>
-
-        <property name="name" value="${musicPlayer.name}"/>
-        <property name="volume" value="${musicPlayer.volume}"/>
-    </bean>
+    <context:component-scan base-package="com.springTest"/>
 
 
 </beans>
