@@ -1,23 +1,23 @@
 package com.springTest;
 
-import org.springframework.stereotype.Component;
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 
-import java.util.ArrayList;
-import java.util.List;
 
-@Component
 public class PopMusic implements Music {
-    List<String> popSongs = new ArrayList<>();
 
-    {
-        popSongs.add("Thinking Out Loud");
-        popSongs.add("pop song number one");
-        popSongs.add("pop song number two");
+    @PostConstruct
+    public void doMyInit() {
+        System.out.println("Doing my initialization");
+    }
 
+    @PreDestroy
+    public void doMyDestroy() {
+        System.out.println("Doing my destruction");
     }
 
     @Override
-    public List<String> getSong() {
-        return popSongs;
+    public String getSong() {
+        return "Thinking Out Loud";
     }
 }
